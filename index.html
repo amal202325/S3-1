@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-<style>
-    
-</style>
+<head>
+    <script>
+        function ftoc() {
+          document.getElementById("c").value=(document.getElementById("f").value-32)*5/9;
+        }
+        </script>
+</head>
 <body>
     <h2>Convertisseur</h2>
     <label >F:</label>
-    <input  id="f" ><br>
+    <input  type="number" id="f" ><br>
     <label >C:</label>
-    <input  id="c" ><br>
-    <button>F TO C</button>
+    <input  type="number" id="c" ><br>
+    <button onclick="ftoc()">F TO C</button>
     <button>C TO F</button>
 </body>
 </html>
