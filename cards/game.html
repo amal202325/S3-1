@@ -2,14 +2,76 @@
 <html>
     <head>
         <script>
-            function swipe(){
-                document.getElementById("1").src="front.png";
+            let nbtir=0;
+            let numcard1=0;
+            let numcard2=0;
+            const cardset=["D.png","R.png","V.png","7.png"];
+            const cardstir=[0,0,0,0];
+            const cards=[];
+            function init(){
+                for (let i = 0; i < cardset.length*2; i++) {
+                    while (true){
+
+                    let x=Math.floor(Math.random() * cardset.length);
+                    if(cardstir[x]<2){
+                    cardstir[x]++;
+                    cards[i]=cardset[x];
+                    break;
+                }
+                }
             }
+
+                console.log(cards);
+
+            }
+            
+            function swipe(){
+                
+                document.getElementById(event.target.id).src=cards[event.target.id];
+                nbtir++;
+                if(nbtir==1) {
+                    numcard1=event.target.id;
+                }
+                if (nbtir==2){
+                    numcard2=event.target.id;
+                    if(cards[numcard2]!=cards[numcard1]){
+                        setTimeout(reset, 1000);
+                        }
+                    else{
+                        nbtir=0;
+                    }
+                }
+
+            }
+            function reset(){
+                document.getElementById(numcard1).src="back.png";
+                        document.getElementById(numcard2).src="back.png";
+                        nbtir=0;
+            }
+            init();
         </script>
     </head>
     <body>
-        <img id="1" src="back.png" style="width: 100px " 
-        onclick="swipe()">
+        <div>
+            <img id="0" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+            <img id="1" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+            <img id="2" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+            <img id="3" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+        </div>
+        <div>
+            <img id="4" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+            <img id="5" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+            <img id="6" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+            <img id="7" src="back.png" style="width: 100px " 
+            onclick="swipe()">
+        </div>
     </body>
 </html>
 
